@@ -11,7 +11,7 @@ class MailController {
     }
 
     public initializeRoutes() {
-        this.router.post(this.path + '/send', this.sendMail)
+        this.router.post('/send', this.sendMail)
     }
 
     async sendMail(request: express.Request, response: express.Response) {
