@@ -2,7 +2,7 @@ import MailService from "../Services/Mail/MailService"
 import express from 'express'
 
 class MailController {
-    public path: string = '/mail'
+    public path: string = '/email'
     public router = express.Router()
     public service = new MailService()
 
