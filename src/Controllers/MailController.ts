@@ -20,10 +20,10 @@ class MailController {
             subject: request.body.subject,
             message: request.body.message,
         }
-        console.table(config)
-        const sendEmailResponse = await this.service.send(config).catch(reason => {
-            console.log('email-failed: ' + reason.toString())
-        })
+        const sendEmailResponse = await this
+            .service
+            .send(config)
+            .catch(reason => console.log('email-failed: ' + reason.toString()))
 
         return response.json(sendEmailResponse)
     }
