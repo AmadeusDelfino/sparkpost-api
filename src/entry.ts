@@ -1,8 +1,8 @@
 import App from "./App";
-// import MailController from "./Controllers/MailController";
+import MailController from "./Controllers/MailController";
 
 const app = new App([
-        // MailController
+        MailController
     ], 3000
 )
 

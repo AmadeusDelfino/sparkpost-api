@@ -1,4 +1,4 @@
-import MailService from "../Services/Mail/MailService";
+import MailService from "../Services/Mail/MailService"
 import express from 'express'
 
 class MailController {
