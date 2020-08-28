@@ -1,6 +1,7 @@
 const SparkPost = require('sparkpost')
 //Create an env var as SPARKPOST_API_KEY
-const client = new SparkPost(process.env.SPARKPOST_API_KEY)
+const client = new SparkPost('-')
+console.log(process.env.SPARKPOST_API_KEY)
 class MailService {
     // @ts-ignore
     send({to, subject, message}): Promise<any> {
@@ -10,7 +11,7 @@ class MailService {
                 sandbox: sandbox
             },
             content: {
-                from: process.env.MAIL_FROM,
+                from: process.env.MAIL_FROM || 'amadeus@telep.com.br',
                 subject: subject,
                 html: message,
             },
