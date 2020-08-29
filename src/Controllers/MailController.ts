@@ -15,7 +15,6 @@ class MailController {
     }
 
     async sendMail(request: express.Request, response: express.Response) {
-        console.log(this)
         const config = {
             to: request.body.to,
             subject: request.body.subject,
@@ -23,7 +22,10 @@ class MailController {
         }
         const sendEmailResponse = await service
             .send(config)
-            .catch(reason => console.log('email-failed: ' + reason.toString()))
+            .catch(reason => {
+                console.log('email-failed')
+                console.log(reason)
+            })
 
         return response.json(sendEmailResponse)
     }

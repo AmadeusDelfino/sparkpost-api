@@ -1,11 +1,14 @@
 const SparkPost = require('sparkpost')
 //Create an env var as SPARKPOST_API_KEY
-const client = new SparkPost('-')
-console.log(process.env.SPARKPOST_API_KEY)
+let client: any
 class MailService {
+    constructor() {
+        client = new SparkPost(process.env.SPARKPOST_API_KEY)
+    }
     // @ts-ignore
     send({to, subject, message}): Promise<any> {
-        const sandbox = process.env.SPARKPOST_SANDBOX || true
+        console.log(to.split(',').map((email: string) =>  {return {address: email}}))
+        const sandbox = process.env.SPARKPOST_SANDBOX || false
         return client.transmissions.send({
             options: {
                 sandbox: sandbox
@@ -15,9 +18,7 @@ class MailService {
                 subject: subject,
                 html: message,
             },
-            recipients: [
-                {address: to}
-            ]
+            recipients: to.split(',').map((email: string) =>  {return {address: email}})
         })
     }
 }

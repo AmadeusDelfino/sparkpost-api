@@ -11,4 +11,4 @@ POST /email/send
 ## Roadmap
 - [ ] Add support for sending files
 - [ ] Add blind copy submission
-- [ ] Add possibility to send to multiple recipients
+- [x] Add possibility to send to multiple recipients
